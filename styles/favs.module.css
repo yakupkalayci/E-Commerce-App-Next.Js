@@ -3,11 +3,39 @@
 }
 
 .product {
-    text-align: center;
     margin-bottom: 3rem;
     border-bottom: 1px solid gray;
+    width: 70%;
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .product > div {
     margin-bottom: 15px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.infoContainer {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.warningMessage {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: #D53F8C;
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.link:hover {
+    text-decoration: underline;
 }
