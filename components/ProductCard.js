@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { useProduct } from "../context/ProductsContext";
 import styles from "../styles/ProductCard.module.css";
-import { Button, ButtonGroup, Image } from "@chakra-ui/react";
+import { Button, ButtonGroup, Image, useToast } from "@chakra-ui/react";
 import {FiHeart, FiShoppingCart} from "react-icons/fi";
 
 export default function ProductCard(props) {
   const { dispatch } = useProduct();
+
+  const toast = useToast();
 
   return (
     <div className={styles.productContainer}>
@@ -29,30 +31,44 @@ export default function ProductCard(props) {
             colorScheme="blue"
             variant="outline"
             leftIcon={<FiHeart />}
-              onClick={() =>
+              onClick={() => {
                 dispatch({
                   type: "AddToFavs",
                   id: props.id,
                   img: props.image,
                   title: props.title,
                   price: props.price,
+                });
+                toast({
+                  title : "Added succesfully!",
+                  description : "The product is in favs now.",
+                  status : "success",
+                  isClosable : true,
+                  position : "bottom-left"
                 })
-              }
+              }}
             >
               Add to Fav
             </Button>
             <Button
             colorScheme="pink"
             leftIcon={<FiShoppingCart />}
-              onClick={() =>
+              onClick={() => {
                 dispatch({
                   type: "AddToCart",
                   id: props.id,
                   img: props.image,
                   title: props.title,
                   price: props.price,
+                });
+                toast({
+                  title : "Added succesfully!",
+                  description : "The product is in favs now.",
+                  status : "success",
+                  isClosable : true,
+                  position : "bottom-left"
                 })
-              }
+              }}
             >
               Add to Cart
             </Button>

@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider} from "@chakra-ui/react";
 import { ProductProvider } from "../context/ProductsContext";
 import "../styles/globals.css";
 
