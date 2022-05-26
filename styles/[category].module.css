@@ -1,0 +1,6 @@
+.productsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem auto;
+    width: 99%;
+}

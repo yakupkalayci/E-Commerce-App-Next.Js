@@ -5,7 +5,7 @@ import { Button, ButtonGroup, Image } from "@chakra-ui/react";
 import {FiHeart, FiShoppingCart} from "react-icons/fi";
 
 export default function ProductCard(props) {
-  const { state, dispatch } = useProduct();
+  const { dispatch } = useProduct();
 
   return (
     <div className={styles.productContainer}>
@@ -21,7 +21,7 @@ export default function ProductCard(props) {
           </h2>
         </div>
         <div className={styles.price}>
-          <p>{props.price}</p>
+          <p>{props.price} TL</p>
         </div>
         <div className={styles.buttons}>
           <ButtonGroup spacing="3">
