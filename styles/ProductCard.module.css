@@ -1,0 +1,39 @@
+.productContainer {
+    width: 320px;
+    height: auto;
+    margin-right: 3rem;
+    margin-bottom: 20px;
+    border: 1px solid rgb(192, 192, 192);
+    text-align: center;
+}
+
+.product {
+    width: 280px;
+    height: 400px;
+    padding: 1rem;
+}
+
+.productTitle {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.productTitle:hover {
+    text-decoration: underline;
+}
+
+.productImg {
+    width: 275px;
+    margin: 0 auto;
+}
+
+.price {
+    text-align: center;
+    color: red;
+    font-size: 18px;
+    margin-bottom: 10px;
+}

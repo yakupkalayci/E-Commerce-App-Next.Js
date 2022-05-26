@@ -1,0 +1,13 @@
+.favs {
+    margin: 1rem 3rem;
+}
+
+.product {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid gray;
+}
+
+.product > div {
+    margin-bottom: 15px;
+}

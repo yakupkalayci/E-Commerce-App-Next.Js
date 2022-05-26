@@ -1,0 +1,20 @@
+.navbar {
+    background-color: #f7f7f7;
+    padding: 1rem;
+    height: 350px;
+    margin-top: 2rem;
+}
+
+.list {
+    width: 300px;
+}
+
+.title {
+    text-align: center;
+}
+
+.listItem {
+    margin-bottom: 1rem;
+    padding-bottom: 4px;
+    border-bottom: 1px solid blue;
+}

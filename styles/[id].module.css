@@ -1,0 +1,28 @@
+.productContainer {
+    margin: 5rem 6rem;
+    display: flex;
+}
+
+.producInfos {
+    background-color: #f5f5f5;
+    margin-left: 1rem;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.price {
+    font-weight: bold;
+    text-align: center;
+    font-size: 19px;
+    align-self: flex-start;
+}
+
+.buttons {
+    background-color: #ddd;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}

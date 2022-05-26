@@ -1,0 +1,25 @@
+.header {
+    background-color: black;
+    color: white;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 1rem;
+    padding-right: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+/* .searchInput {
+    padding: 5px 10px;
+    width: 300px;
+    border-radius: 4px;
+    border: 3px solid gray;
+    margin-right: 10px;
+} */
+
+.search {
+    display: flex;
+    column-gap: 10px;
+}
