@@ -5,7 +5,7 @@ import { Button, ButtonGroup, Image, useToast } from "@chakra-ui/react";
 import {FiHeart, FiShoppingCart} from "react-icons/fi";
 
 export default function ProductCard(props) {
-  const { dispatch } = useProduct();
+  const {state, dispatch } = useProduct();
 
   const toast = useToast();
 
@@ -60,10 +60,10 @@ export default function ProductCard(props) {
                   img: props.image,
                   title: props.title,
                   price: props.price,
-                });
+                }); console.log(state.cart);
                 toast({
                   title : "Added succesfully!",
-                  description : "The product is in favs now.",
+                  description : "The product is in cart now.",
                   status : "success",
                   isClosable : true,
                   position : "bottom-left"

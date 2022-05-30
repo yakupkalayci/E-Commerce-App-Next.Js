@@ -1,3 +1,4 @@
+import { allowedStatusCodes } from "next/dist/lib/load-custom-routes";
 
 export const initialStates = {
   favs: [],
@@ -7,9 +8,9 @@ export const initialStates = {
 
 export const AppReducer = (state, action) => {
 
-  const checkTwice = (arrName, elementID) => {
+  const checkTwice = (elementID) => {
     let flag = false;
-    state[`${arrName}`].forEach(item => {
+    state.favs.forEach(item => {
       if(item.id === elementID) flag = true;
     });
     return flag;
@@ -22,7 +23,7 @@ export const AppReducer = (state, action) => {
 
     case "AddToFavs": {
 
-      if(!checkTwice("favs", action.id)) {
+      if(!checkTwice(action.id)) {
         return {
           ...state,
           favs: [
@@ -35,28 +36,29 @@ export const AppReducer = (state, action) => {
             },
           ],
         };
-      }
+      } 
     }
+
     case "AddToCart": {
-      if(!checkTwice("cart", action.id)) {
-        return {
-          ...state,
-          cart: [
-            ...state.cart,
-            {
-              id: action.id,
-              img: action.img,
-              title: action.title,
-              price: action.price,
-            },
-          ],
-        };
+      return {
+        ...state,
+        cart: [
+          ...state.cart,
+          {
+            id: action.id,
+            img: action.img,
+            title: action.title,
+            price: action.price,
+          },
+        ]
       }
     }
+
     case "RemoveFromFavs": {
       let newArr = state.favs.filter((item) => !(item.id == action.id));
       return { ...state, favs: newArr };
     }
+
     case "RemoveFromCart": {
       let newArr = state.cart.filter((item) => !(item.id === action.id));
       return { ...state, cart: newArr };

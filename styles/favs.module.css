@@ -12,6 +12,12 @@
     justify-content: space-between;
 }
 
+.productTitle:hover {
+    color:#D53F8C;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 .product > div {
     margin-bottom: 15px;
 }

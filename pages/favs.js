@@ -18,7 +18,7 @@ export default function Favs() {
               <img src={item.img} width="200px" height="200px"></img>
             </div>
             <div>
-              {item.title}
+              <Link href={`/products/${item.id}`}><a className={styles.productTitle}>{item.title}</a></Link>
             </div>
             <div className={styles.buttons}>
               <Button onClick={() => dispatch({type:"AddToCart", id:item.id})} colorScheme="pink" mb="2" >Add to Cart</Button>
