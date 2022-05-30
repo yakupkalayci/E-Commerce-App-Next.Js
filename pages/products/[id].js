@@ -1,28 +1,76 @@
-import Link from "next/link";
 import styles from "../../styles/[id].module.css";
+import { Heading, Button, ButtonGroup, useToast } from "@chakra-ui/react";
+import { FiHeart, FiShoppingCart } from "react-icons/fi";
+import { useProduct } from "../../context/ProductsContext";
 
 export default function Product({ data }) {
+  const {dispatch} = useProduct();
+
+  const toast = useToast();
+
   return (
-      <>
-      <div className={styles.productContainer} >
-          <div className={styles.producImg}>
-              <img src={data.image} width="600px" height="600px" />
+    <>
+      <div className={styles.productContainer}>
+        <div className={styles.producImg}>
+          <img src={data.image} width="800px" height="800px" />
+        </div>
+        <div className={styles.producInfos}>
+          <Heading>{data.title}</Heading>
+          <div className={styles.description}>
+            <Heading size="md">Description:</Heading>
+            <p>{data.description}</p>
           </div>
-          <div className={styles.producInfos}>
-              <h2 className={styles.title}>{data.title}</h2>
-              <div className={styles.description}>
-                  <h4>Description:</h4>
-                  <p>{data.description}</p>
-              </div>
-              <p className={styles.price}>{data.price}</p>
-              <div className={styles.buttons}>
-                  <button>Fav</button>
-                  <button>Add to cart</button>
-              </div>
-          </div>
+          <p className={styles.price}>{data.price}₺</p>
+          <ButtonGroup variant="solid" className={styles.buttons}>
+            <Button
+              colorScheme="blue"
+              leftIcon={<FiHeart />}
+              onClick={() => {
+                dispatch({
+                  type: "AddToFavs",
+                  id: data.id,
+                  img: data.image,
+                  title: data.title,
+                  price: data.price,
+                });
+                toast({
+                  title: "Added succesfully!",
+                  description: "The product is in favs now.",
+                  status: "success",
+                  isClosable: true,
+                  position: "bottom-left",
+                });
+              }}
+            >
+              Fav
+            </Button>
+            <Button
+              colorScheme="pink"
+              leftIcon={<FiShoppingCart />}
+              onClick={() => {
+                dispatch({
+                  type: "AddToCart",
+                  id: data.id,
+                  img: data.image,
+                  title: data.title,
+                  price: data.price,
+                });
+                toast({
+                  title: "Added succesfully!",
+                  description: "The product is in cart now.",
+                  status: "success",
+                  isClosable: true,
+                  position: "bottom-left",
+                });
+              }}
+            >
+              Add to cart
+            </Button>
+          </ButtonGroup>
+        </div>
       </div>
-      </>
-  )
+    </>
+  );
 }
 
 export async function getStaticPaths() {
