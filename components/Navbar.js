@@ -17,7 +17,7 @@ export default function Navbar() {
     
     return (
         <div className={styles.navbar}>
-            <h3 className={styles.title}>Categories</h3>
+            {/* <h3 className={styles.title}>Categories</h3> */}
             <ul className={styles.list}>
                 {
                     categories.map(category => (

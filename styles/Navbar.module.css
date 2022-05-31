@@ -1,28 +1,19 @@
-.navbar {
-    background-color: #f7f7f7;
-    padding: 1rem;
-    height: 300px;
-    margin-top: 2rem;
-}
-
 .list {
-    width: 300px;
-    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.title {
-    text-align: center;
-    font-weight: bold;
-    font-size: 20px;
-}
 
 .listItem {
-    margin-bottom: 1rem;
-    padding-bottom: 4px;
-    padding-left: 1rem;
-    border-bottom: 1px solid blue;
+    border-right: 1px solid blue;
+    padding: 0 20px;
 }
 
 .listItem:hover {
     color: blue;
+}
+
+.list > .listItem:last-child {
+    border: none;
 }

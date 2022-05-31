@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
 import styles from "../styles/Home.module.css";
 
@@ -6,7 +5,6 @@ export default function Home({ data }) {
   return (
     <>
       <div className={styles.container}>
-        <Navbar />
         <div className={styles.main}>
           {data.map((product) => (
             <ProductCard
