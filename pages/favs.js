@@ -49,7 +49,7 @@ export default function Favs() {
           </li>
         ))
         :<div className={styles.infoContainer}>
-          <p className={styles.warningMessage}>You haven't added any products to your favorites yet.</p>
+          <p className={styles.warningMessage}>You have not added any products to your favorites yet.</p>
           <br />
           <Link href="/">
           <a className={styles.link}>See All Products</a>
