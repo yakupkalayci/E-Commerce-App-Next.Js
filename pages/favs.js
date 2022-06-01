@@ -1,10 +1,12 @@
 import { useProduct } from "../context/ProductsContext";
 import styles from "../styles/favs.module.css";
-import { Heading, Button } from "@chakra-ui/react";
+import { Heading, Button, useToast } from "@chakra-ui/react";
 import Link from "next/link";
 
 export default function Favs() {
   const {state, dispatch} = useProduct();
+
+  const toast = useToast();
 
   return (
     <div className={styles.favs}>
@@ -21,8 +23,28 @@ export default function Favs() {
               <Link href={`/products/${item.id}`}><a className={styles.productTitle}>{item.title}</a></Link>
             </div>
             <div className={styles.buttons}>
-              <Button onClick={() => dispatch({type:"AddToCart", id:item.id})} colorScheme="pink" mb="2" >Add to Cart</Button>
-              <Button onClick={() => dispatch({type:"RemoveFromFavs", id:item.id})} colorScheme="blue" >Remove</Button>
+              <Button colorScheme="pink" mb="2" onClick={() => {
+                dispatch({type:"AddToCart", id: item.id, img: item.img, title: item.title, price: item.price});
+                toast({
+                  title : "Added succesfully!",
+                  description : "The product is in cart now.",
+                  status : "success",
+                  isClosable : true,
+                  position : "bottom-left"
+                })
+                }}>
+                  Add to Cart
+                </Button>
+              <Button colorScheme="blue"  onClick={() => {
+                dispatch({type:"RemoveFromFavs", id:item.id});
+                toast({
+                  title : "Removed succesfully!",
+                  description : "The product has removed from your favs.",
+                  status : "info",
+                  isClosable : true,
+                  position : "bottom-left"
+                })
+              }}>Remove</Button>
             </div>
           </li>
         ))

@@ -1,18 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useProduct } from "../context/ProductsContext";
 import { Button, Heading } from "@chakra-ui/react";
 import styles from "../styles/cart.module.css";
 import Link from "next/link";
-import Head from "next/head";
 
 export default function Cart() {
   const { state, dispatch } = useProduct();
+
+  const totalCartAmount = state.cart?.reduce(
+    (total, cartItem) => (total = total + cartItem.price * cartItem.count),
+    0
+  ).toFixed(2);
 
   return (
     <div className={styles.cart}>
       <div className={styles.productsContainer}>
         <Heading>Products</Heading>
-        {state.cart.length ? (
+        {state.cart?.length ? (
           <ul>
             {state.cart.map((item) => (
               <li key={item.id} className={styles.product}>
@@ -26,14 +30,14 @@ export default function Cart() {
                     </Link>
                   </div>
                   <div>
-                    <span className={styles.price}>{item.price} TL</span>
+                    <span className={styles.price}>{(item.price * item.count).toFixed(2)} TL</span>
                     <span className={styles.count}>
-                      <p>1 adet</p>
+                      <p>{item.count} adet</p>
                     </span>
                   </div>
                 </div>
                 <div className={styles.buttons}>
-                  <Button>+</Button>
+                  <Button onClick={() => dispatch({type: "decrease", id: item.id})}>-</Button>
                   <br />
                   <Button
                     onClick={() =>
@@ -42,7 +46,7 @@ export default function Cart() {
                   >
                     Remove
                   </Button>
-                  <Button>-</Button>
+                  <Button onClick={() => dispatch({type: "increase", id: item.id})}>+</Button>
                 </div>
               </li>
             ))}
@@ -62,7 +66,7 @@ export default function Cart() {
           <Heading size="md" className={styles.heading}>
             Total Price:
           </Heading>
-          <p className={styles.totalPrice}>0₺</p>
+          <p className={styles.totalPrice}>{totalCartAmount}₺</p>
           <Button colorScheme="teal">Pay Now</Button>
         </div>
       </div>

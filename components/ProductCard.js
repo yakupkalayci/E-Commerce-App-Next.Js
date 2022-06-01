@@ -60,7 +60,7 @@ export default function ProductCard(props) {
                   img: props.image,
                   title: props.title,
                   price: props.price,
-                }); console.log(state.cart);
+                })
                 toast({
                   title : "Added succesfully!",
                   description : "The product is in cart now.",

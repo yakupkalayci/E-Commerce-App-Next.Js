@@ -3,6 +3,7 @@ import { AppReducer, initialStates } from "./AppReducer";
 
 const ProductContext = createContext();
 
+
 export const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialStates);
 
