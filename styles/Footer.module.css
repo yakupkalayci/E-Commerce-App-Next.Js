@@ -1,0 +1,19 @@
+.footer {
+    background-color: rgb(57, 57, 57);
+    color: white;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+}
+
+.link {
+    font-weight: bold;
+}
+
+.link:hover {
+    color: teal;
+}
