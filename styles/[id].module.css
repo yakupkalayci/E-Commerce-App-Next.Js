@@ -1,6 +1,7 @@
 .productContainer {
     margin: 5rem 9rem;
     display: flex;
+    padding-bottom: 5rem;
 }
 
 .producInfos {
