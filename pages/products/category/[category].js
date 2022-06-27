@@ -1,11 +1,15 @@
 import ProductCard from "../../../components/ProductCard";
+import { useProduct } from "../../../context/ProductsContext";
 import styles from "../../../styles/[category].module.css";
 
 export default function CategoryPage({data}) {
+    const {filterProducts} = useProduct();
+    const products = filterProducts(data);
+
     return (
     <div className={styles.productsContainer}>
         {
-            data.map(product => (
+            products.map(product => (
                 <ProductCard key={product.id} image={product.image} id={product.id} title={product.title} price={product.price} />
             ))
         }

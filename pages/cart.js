@@ -5,7 +5,8 @@ import styles from "../styles/cart.module.css";
 import Link from "next/link";
 
 export default function Cart() {
-  const { state, dispatch } = useProduct();
+  const { state, dispatch, filterProducts } = useProduct();
+  const products = filterProducts(state.cart)
 
   const totalCartAmount = state.cart?.reduce(
     (total, cartItem) => (total = total + cartItem.price * cartItem.count),
@@ -18,7 +19,7 @@ export default function Cart() {
         <Heading>Products</Heading>
         {state.cart?.length ? (
           <ul>
-            {state.cart.map((item) => (
+            {products.map((item) => (
               <li key={item.id} className={styles.product}>
                 <div className={styles.firstPart}>
                   <div>

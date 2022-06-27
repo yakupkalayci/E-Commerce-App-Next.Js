@@ -1,12 +1,16 @@
 import ProductCard from "../components/ProductCard";
 import styles from "../styles/Home.module.css";
+import { useProduct } from "../context/ProductsContext";
 
 export default function Home({ data }) {
+  const {filterProducts} = useProduct();
+  const products = filterProducts(data);
+
   return (
     <>
       <div className={styles.container}>
         <div className={styles.main}>
-          {data.map((product) => (
+          {products.map((product) => (
             <ProductCard
               key={product.id}
               image={product.image}

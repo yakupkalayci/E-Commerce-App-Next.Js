@@ -1,10 +1,13 @@
 import Link from "next/link";
 import Navbar from "./Navbar";
+import { useProduct } from "../context/ProductsContext";
 import styles from "../styles/Header.module.css";
 import {IconButton, Input, Heading } from "@chakra-ui/react";
 import { FiSearch, FiHeart, FiShoppingCart } from "react-icons/fi";
 
 export default function Header() {
+  const {searchInput, handleInputChange} = useProduct();
+
   return (
     <header className={styles.headerContainer}>
       <div className={styles.mainHeader}>
@@ -17,11 +20,12 @@ export default function Header() {
         </div>
         <div className={styles.search}>
           <Input
-            defaultValue="Type for Search"
+            placeholder="Type for search"
             variant="Outline"
             color="black"
             width="300px"
             height="auto"
+            onChange={(e) => handleInputChange(e)}
           />
           <IconButton icon={<FiSearch />} color="black" size="md" />
         </div>

@@ -4,7 +4,8 @@ import { Heading, Button, useToast } from "@chakra-ui/react";
 import Link from "next/link";
 
 export default function Favs() {
-  const {state, dispatch} = useProduct();
+  const {state, dispatch, filterProducts} = useProduct();
+  const products = filterProducts(state.favs);
 
   const toast = useToast();
 
@@ -14,7 +15,7 @@ export default function Favs() {
       <ul>
         {
         (state.favs.length > 0) ?
-        state.favs.map((item) => (
+        products.map((item) => (
           <li className={styles.product} key={item.title}>
             <div>
               <img src={item.img} width="200px" height="200px"></img>
