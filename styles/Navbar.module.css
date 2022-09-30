@@ -4,7 +4,6 @@
     align-items: center;
 }
 
-
 .listItem {
     border-right: 1px solid blue;
     padding: 0 20px;
@@ -16,4 +15,18 @@
 
 .list > .listItem:last-child {
     border: none;
+}
+
+@media only screen and (max-width: 485px) {
+    .list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .listItem {
+        border-right: none;
+        border-bottom: 1px solid blue;
+        padding:  5px 0;
+        width: 100%;
+    }
 }

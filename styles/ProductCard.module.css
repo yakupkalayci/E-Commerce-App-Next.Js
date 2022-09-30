@@ -42,3 +42,10 @@
 .buttons {
     margin-left: -22px;
 }
+
+@media screen and (max-width: 579px) {
+    .productContainer {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}

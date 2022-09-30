@@ -46,3 +46,14 @@
 .link:hover {
     text-decoration: underline;
 }
+
+@media only screen and (max-width: 768px) {
+    .product {
+        flex-direction: column;
+    }
+
+    .buttons {
+        flex-direction: row;
+        column-gap: 10px;
+    }
+}
